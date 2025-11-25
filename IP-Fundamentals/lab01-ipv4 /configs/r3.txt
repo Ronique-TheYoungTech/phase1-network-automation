@@ -1,0 +1,14 @@
+
+Router# configure terminal
+Router(config)#hostname R3
+R3(config)#end 
+
+R3(config)#ipv6 unicast-routing
+R3(config)#interface se0/3/1
+R3(config-if)#ipv6 add 2001:abcd:abcd::2/64
+R3(config-if)#no shut
+R3(config)#interface lo0
+R3(config-if)#ipv6 add 2001::5/64
+
+R3#show ipv6 int brief
+show ipv6 interface se0/3/1
