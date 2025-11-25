@@ -34,7 +34,7 @@ Verify & Troubleshoot interface states and connectivity
 Step 1 — Configure Hostnames
 
 R1
-![Router1 Hostname Configuration](./screenshots/r1-hostname-config-.png)
+![Router1 Hostname Configuration](./screenshots/r1-hostname-config.png)
 
 ```bash
 conf t
@@ -42,7 +42,7 @@ hostname R1
 end
 ```
 R3
-![Router3 Hostname Configuration](./screenshots/r3-hostname-config-.png)
+![Router3 Hostname Configuration](./screenshots/r3-hostname-config.png)
 
 ```bash
 conf t
@@ -53,7 +53,7 @@ Step 2 — Configure Serial Interfaces
 R1 — Serial0/3/0 (DCE)
 
 (Clock rate required on DCE side)
-![Clock Rate Configuration](./screenshots/r1-clockrate-config-.png)
+![Clock Rate Configuration](./screenshots/r1-clockrate-config.png)
 
 ```bash
 conf t
