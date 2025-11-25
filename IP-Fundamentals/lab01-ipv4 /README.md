@@ -10,15 +10,13 @@ Direct point-to-point serial connection
 
 🖥️ Network Topology
 
-According to the PDF (page 2):
-
 Two Cisco 2901 routers
 
 Serial DCE/DTE connection
 
 HDLC encapsulation
 
-R1 (S0/3/0) ---- Serial Link ---- (S0/3/1) R3
+![Lab01-Topology](./screenshots/lab1-ipv4-topology.png)
 
  🎯 Lab Objectives
 
@@ -62,6 +60,36 @@ interface Se0/3/0
  no shutdown
 end
 ```
+
+R3 — Serial0/3/1 (DTE)
+![Router3 IPv6 Configuration](./screenshots/r3-ipv6-config.png)
+```bash
+R3(config)#ipv6 unicast-routing
+R3(config)#interface Se0/3/1
+R3(config-if)#ipv6 add 2001:abcd:abcd::2/64
+R3(config-if)#no shut
+R3(config)#interface lo0
+R3(config-if)#ipv6 add 2001::5/64
+```
+R1 - Serial0/3/0 (DCE)
+![Router` IPv6 Configuration](./screenshots/r1-ipv6-config.png)
+```bash
+R1(config)#ipv6 unicast-routing
+R1(config)#interface Se0/3/0 
+R1(config-if)#ipv6 add 2001:abcd:abcd::1/64
+R1(config-if)#no shut
+```
+
+🔍 Step 4 — Verification Commands
+Check All Interface Status + IPs
+![Router` IPv6 Configuration](./screenshots/r1-ipv6-config.png)
+```bash
+R3#show ipv6 int brief
+show ipv6 interface se0/3/1
+```
+
+
+
 
 
 
