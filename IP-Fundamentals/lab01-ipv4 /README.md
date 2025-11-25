@@ -16,7 +16,7 @@ Serial DCE/DTE connection
 
 HDLC encapsulation
 
-![Lab01-Topology](./screenshots/lab1-ipv4-topology.png)
+![Lab02-Topology](./screenshots/lab2-ipv6-topology.png)
 
  🎯 Lab Objectives
 
