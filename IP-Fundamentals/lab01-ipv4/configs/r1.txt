@@ -1,0 +1,7 @@
+Router#config terminal 
+Router(config)#hostname R1
+R1(config)#end 
+
+R1(config)#interface se0/3/0
+R1(config-if)#ip add 172.16.1.1 255.255.255.192
+R1(config-if)#no shut
