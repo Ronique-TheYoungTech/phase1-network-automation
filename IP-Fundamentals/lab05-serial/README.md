@@ -25,7 +25,7 @@ Router(config)#hostname R2
 
 Task 2 – Identify DCE/DTE Roles Using show controllers
 R1 – DCE
-![R1 SHOW-CONTROLLERS DCE](./screenshots/r2-controllers-dce.png)
+![R1 SHOW-CONTROLLERS DCE](./screenshots/r1-controllers-dce.png)
 ```bash
 R1#show controllers Se0/3/0
 Interface Serial0/3/0
