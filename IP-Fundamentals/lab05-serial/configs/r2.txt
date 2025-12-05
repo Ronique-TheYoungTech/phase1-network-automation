@@ -1,1 +1,20 @@
+Router>en
+Router#conf t
+Router(config)#hostname R2
 
+R2#show controllers Se0/3/1
+Interface Serial0/3/1
+Hardware is PowerQUICC MPC860
+DTE V.35 TX and RX clocks detected
+
+R2(config)#interface Se0/3/1
+R2(config-if)#ip address 172.30.100.2 255.255.255.252
+R2(config-if)#no shut
+
+R2#show ip interface brief
+Interface       IP-Address      OK? Method Status      Protocol
+Serial0/3/1     172.30.100.2    YES manual up          up
+
+R2#ping 172.30.100.1
+!!!!!
+Success rate is 100 percent (5/5)
