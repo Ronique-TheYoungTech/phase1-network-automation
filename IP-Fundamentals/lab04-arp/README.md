@@ -10,26 +10,26 @@ In this lab, I will verify ARP tables, observe ARP aging, and understand why R1 
 
 Lab Topology
 Three routers connected via FastEthernet:
-![LAB4 TOPOLOGY](./screenshots/lab4-topology.png)
+[!LAB4 TOPOLOGY](./screenshots/lab4-topology.png)
 R1 needs a route to reach R3, and R3 needs a route to return traffic.
 
 Task 1 – Configure Hostnames
 R1
-![R1 HOSTNAME CONFIGURATION](./screenshots/r1-hostname-config.png)
+[!R1 HOSTNAME CONFIGURATION](./screenshots/r1-hostname-config.png)
 ```bash
 Router#config t
 Router(config)#hostname R1
 R1(config)#end
 ```
 R2
-![R2 HOSTNAME CONFIGURATION](./screenshots/r2-hostname-config.png)
+[!R2 HOSTNAME CONFIGURATION](./screenshots/r2-hostname-config.png)
 ```bash
 Router>en
 Router#conf t
 Router(config)#hostname R2
 ```
 R3
-![R3 HOSTNAME CONFIGURATION](./screenshots/r3-hostname-config.png)
+[!R3 HOSTNAME CONFIGURATION](./screenshots/r3-hostname-config.png)
 ```bash
 Router>en
 Router#conf t
