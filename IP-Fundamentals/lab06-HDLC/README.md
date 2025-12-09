@@ -39,20 +39,20 @@ Router(config)# hostname R2
 ```
 2️⃣ Enable Serial Interfaces
 R1 – DTE
-![R1 Serial Interface Config](r1-int-config.png)
+![R1 Serial Interface Config](./screenshots/r1-int-config.png)
 ```bash
 R1(config)# interface Serial0/3/1
 R1(config-if)# no shutdown
 ```
 R2 – DCE
-![R2 Serial Interface Config](r2-int-config.png)
+![R2 Serial Interface Config](./screenshots/r2-int-config.png)
 ```bash
 R2(config)# interface Serial0/3/0
 R2(config-if)# no shutdown
 ```
 3️⃣ Set Clock Rate on the DCE Side
 Because R2 has the DCE cable, it must provide clocking.
-![R2 Clock Rate Config](r2-clockrate-config.png)
+![R2 Clock Rate Config](./screenshots/r2-clockrate-config.png)
 ```bash
 R2(config)# interface Serial0/3/0
 R2(config-if)# clock rate 250000
@@ -61,7 +61,7 @@ R2(config-if)# clock rate 250000
 4️⃣ Verify HDLC Encapsulation (Default)
 On both routers:
 R1
-![R1 HDLC Verification](r1-hdlc-verification.png)
+![R1 HDLC Verification](./screenshots/r1-hdlc-verification.png)
 ```bash
 show interfaces Serial0/3/1
 ```
@@ -71,7 +71,7 @@ Encapsulation HDLC
 ```
 
 R2
-![R2 HDLC Verification](r2-hdlc-verification.png)
+![R2 HDLC Verification](./screenshots/r2-hdlc-verification.png)
 ```bash
 show interfaces Serial0/3/0
 ```
@@ -84,7 +84,7 @@ Encapsulation HDLC
 Run:
 
 R1
-![R1 Show Controllers](r1-show-controllers.png) 
+![R1 Show Controllers](./screenshots/r1-show-controllers.png) 
 ```bash
 show controllers Serial0/3/1
 ```
@@ -95,7 +95,7 @@ Hardware driver values
 RX/TX ring status
 
 R2
-![R2 Show Controllers Config](r2-show-controllers.png)
+![R2 Show Controllers Config](./screenshots/r2-show-controllers.png)
 ```bash
 show controllers Serial0/3/0
 ```
@@ -107,7 +107,7 @@ RX/TX ring status
 
 6️⃣ Clear Debug Output (If Used)
 If you attempted debugging earlier:
-![R1 Undebug](r1-undebug-config.png)
+![R1 Undebug](./screenshots/r1-undebug-config.png)
 ```bash 
 undebug all
 ```
