@@ -84,7 +84,7 @@ Encapsulation HDLC
 Run:
 
 R1
-![R1 Show Controllers](r1-show-controllers.png)
+![R1 Show Controllers](r1-show-controllers.png) 
 ```bash
 show controllers Serial0/3/1
 ```
