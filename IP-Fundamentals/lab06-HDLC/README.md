@@ -108,7 +108,7 @@ RX/TX ring status
 6️⃣ Clear Debug Output (If Used)
 If you attempted debugging earlier:
 ![R1 Undebug](r1-undebug-config.png)
-```bash
+```bash 
 undebug all
 ```
 
