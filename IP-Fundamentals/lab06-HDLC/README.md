@@ -23,7 +23,7 @@ clock rate (on DCE side)
 🔧 Step-by-Step Configuration
 1️⃣ Set Hostnames
 R1
-![R1 HOSTNAME CONFIG](./screenshots/r1-hostname.png)
+![R1 HOSTNAME CONFIG](./screenshots/r1-hostname-config.png)
 ```bash
 Router> enable
 Router# configure terminal
@@ -31,7 +31,7 @@ Router(config)# hostname R1
 ```
 
 R2
-![R2 HOSTNAME CONFIG](./screenshots/r2-hostname.png)
+![R2 HOSTNAME CONFIG](./screenshots/r2-hostname-config.png)
 ```bash
 Router> enable
 Router# configure terminal
