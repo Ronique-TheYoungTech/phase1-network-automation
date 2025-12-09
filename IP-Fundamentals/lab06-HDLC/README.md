@@ -95,7 +95,7 @@ Hardware driver values
 RX/TX ring status
 
 R2
-![R2 Show Controllers Config](r2-showcontrollers-config.png)
+![R2 Show Controllers Config](r2-show-controllers.png)
 ```bash
 show controllers Serial0/3/0
 ```
