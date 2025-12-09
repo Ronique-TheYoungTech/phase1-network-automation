@@ -1,1 +1,13 @@
+Router> enable
+Router# configure terminal
+Router(config)# hostname R2
+
+R2(config)# interface Serial0/3/0
+R2(config-if)# no shutdown
+
+R2(config)# interface Serial0/3/0
+R2(config-if)# clock rate 250000
+
+show interfaces Serial0/3/0
+show controllers Serial0/3/0
 
