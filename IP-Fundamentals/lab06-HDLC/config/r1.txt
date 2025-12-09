@@ -1,1 +1,10 @@
+Router> enable
+Router# configure terminal
+Router(config)# hostname R1
 
+R1(config)# interface Serial0/3/1
+R1(config-if)# no shutdown
+
+show interfaces Serial0/3/1
+show controllers Serial0/3/1
+undebug all
