@@ -86,7 +86,7 @@ Run:
 R1
 ![R1 Show Controllers](r1-show-controllers.png)
 ```bash
-show controllers Serial0/3/x
+show controllers Serial0/3/1
 ```
 This confirms:
 Whether the interface is DCE or DTE
@@ -97,7 +97,7 @@ RX/TX ring status
 R2
 ![R2 Show Controllers Config](r2-showcontrollers-config.png)
 ```bash
-show controllers Serial0/3/1
+show controllers Serial0/3/0
 ```
 This confirms:
 Whether the interface is DCE or DTE
