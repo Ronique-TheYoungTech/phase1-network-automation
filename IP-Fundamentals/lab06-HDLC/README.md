@@ -97,7 +97,7 @@ RX/TX ring status
 R2
 ![R2 Show Controllers Config](./screenshots/r2-show-controllers.png)
 ```bash
-show controllers Serial0/3/0
+show controllers Serial0/3/0 
 ```
 This confirms:
 Whether the interface is DCE or DTE
