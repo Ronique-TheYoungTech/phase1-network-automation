@@ -3,7 +3,7 @@ Lab 7 — Configuring & Verifying PPP Encapsulation on Serial Links
 The objective of this lab exercise is to:
 Enable PPP encapsulation on Cisco router Serial interfaces
 Verify PPP link state, negotiation, and encapsulation
-Use debugging tools to observe PPP negotiation phases
+Use debugging tools to observe PPP negotiation phases 
 Validate successful PPP operation using CLI verification commands
 
 📘 Lab Purpose
