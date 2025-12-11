@@ -15,7 +15,7 @@ Verify interface state, PPP negotiation, and LCP phases
 Interpret authentication failures and successes
 
 Network Topology
-![LAB7 TOPOLOGY](./screenshots/lab07-topology.png)
+![LAB7 TOPOLOGY](./screenshots/lab7-topology.png)
 ```bash
 Device	Role	Interface	IP Address	Subnet Mask
 R1	DTE	Se0/3/1	10.0.254.1	255.255.255.240
