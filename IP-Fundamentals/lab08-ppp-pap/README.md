@@ -40,7 +40,7 @@ interface Se0/3/1
  ip address 10.0.254.1 255.255.255.240
 ```
 R1 Show Controllers 
-![R1 Interface Config](./screenshots/r1-show-config.png)
+![R1 Interface Config](./screenshots/r1-show-controllers.png)
 ```bash
 R1#show controllers Se0/3/1
 ```
