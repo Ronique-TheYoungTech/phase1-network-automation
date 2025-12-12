@@ -30,20 +30,6 @@ R1 Hostname
 R2 Hostname
 ![R2 Hostname](./screenshots/r2-hostname-config.png) 
 
-Serial Interface Setup
-R1: Serial Interface Configuration
-![R1 Interface Config](./screenshots/r1-int-config.png)
-```bash 
-interface Se0/3/1
- no shutdown
- encapsulation ppp
- ip address 10.0.254.1 255.255.255.240
-```
-R1 Show Controllers 
-![R1 Interface Config](./screenshots/r1-show-controllers.png)
-```bash
-R1#show controllers Se0/3/1
-```
 
 R2: Serial Interface Configuration (DCE)
 DCE side requires a clock rate.
