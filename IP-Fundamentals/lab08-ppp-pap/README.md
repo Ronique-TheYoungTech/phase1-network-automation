@@ -28,7 +28,7 @@ R1 Hostname
 ![R1 Hostname](./screenshots/r1-hostname-config.png)
 
 R2 Hostname
-![R2 Hostname](./screenshots/r2-hostname-config.png)
+![R2 Hostname](./screenshots/r2-hostname-config.png) 
 
 Serial Interface Setup
 R1: Serial Interface Configuration
