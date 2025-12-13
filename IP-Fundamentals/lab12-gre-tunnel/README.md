@@ -1,4 +1,3 @@
-````markdown
 # Lab 12 – Configuring GRE Point-to-Point Tunnel (Cisco IOS)
 
 ## Lab Objective
@@ -33,22 +32,26 @@ Any errors encountered during this lab are **due to Cisco Packet Tracer limitati
 
 ## Initial Device Setup
 
+### R1 Hostname Configuration
+
 ```bash
 enable
 configure terminal
 hostname R1
 end
-````
+```
+![R1 Hostname Configuration](./screenshots/r1-hostname-config.png)
 
-![R1 Hostname Configuration](./screenshots/r1-hostname-config .png)
+R2 Hostname Configuration
+enable
+configure terminal
+hostname R2
+end
 
----
+![R2 Hostname Configuration](./screenshots/R2-hostname-config.png)
 
-## Physical Interface Configuration
-
-### R1 Interface Configuration
-
-```bash
+Physical Interface Configuration
+R1 Interface Configuration
 interface g0/0
  ip address 172.16.1.1 255.255.255.252
  no shutdown
@@ -56,15 +59,8 @@ interface g0/0
 interface g0/1
  ip address 192.168.1.1 255.255.255.0
  no shutdown
-```
 
-![R1 Interface IP Configuration](./screenshots/r1-ip-int-config.png)
-
----
-
-### R2 Interface Configuration
-
-```bash
+R2 Interface Configuration
 interface g0/1
  ip address 172.16.1.2 255.255.255.252
  no shutdown
@@ -72,125 +68,66 @@ interface g0/1
 interface g0/0
  ip address 192.168.2.1 255.255.255.0
  no shutdown
-```
+ 
+![R2 Interface IP Configuration](./screenshots/r2-ip-int-config.png)
 
-![R2 Interface IP Configuration](./screenshots/r2-ip-int-config .png)
-
----
-
-## GRE Tunnel Configuration
-
-### R1 GRE Tunnel Configuration
-
-```bash
+GRE Tunnel Configuration
+R1 GRE Tunnel Configuration
 interface tunnel 1
  ip address 10.10.10.1 255.255.255.252
  tunnel source g0/0
  tunnel destination 172.16.1.2
  tunnel mode gre ip
-```
 
-![R1 GRE Configuration](./screenshots/r1-gre-config .png)
+![R1 GRE Configuration](./screenshots/r1-gre-config.png)
 
----
-
-### R2 GRE Tunnel Configuration
-
-```bash
+R2 GRE Tunnel Configuration
 interface tunnel 1
  ip address 10.10.10.2 255.255.255.252
  tunnel source g0/1
  tunnel destination 172.16.1.1
  tunnel mode gre ip
-```
 
-![R2 GRE Configuration](./screenshots/r2-gre-config .png)
+![R2 GRE Configuration](./screenshots/r2-gre-config.png)
 
----
-
-## Tunnel Verification
-
-### R1 Tunnel Verification
-
-```bash
+Tunnel Verification
+R1 Tunnel Verification
 show interface tunnel 1
-```
 
-![R1 Tunnel Verification](./screenshots/r1-tunnel-verification.png)
-
----
-
-### R2 Tunnel Verification
-
-```bash
+R2 Tunnel Verification
 show interface tunnel 1
-```
 
-![R2 Tunnel Verification](./screenshots/r2-tunnel-verification.png)
-
----
-
-## Static Routing Over GRE
-
-### Intended Static Routes (Valid Cisco IOS)
-
-```bash
+Static Routing Over GRE
+Intended Static Routes (Valid Cisco IOS)
 ip route 192.168.2.0 255.255.255.0 tunnel 1
 ip route 192.168.1.0 255.255.255.0 tunnel 1
-```
 
----
 
-### Cisco Packet Tracer Limitation
+Cisco Packet Tracer Limitation
 
-Cisco Packet Tracer does **not fully support interface-based static routing using GRE tunnel interfaces**.
+Cisco Packet Tracer does not fully support interface-based static routing using GRE tunnel interfaces.
 As a result, valid IOS commands may return syntax errors within Packet Tracer.
 
-![R1 Static Route Error](./screenshots/r1-static-route.png)
+Platform Limitations Documented
+Feature	Status
+GRE tunnel configuration	Supported
+Tunnel interface verification	Supported
+Interface-based static routing over GRE	Not supported in Packet Tracer
 
-![R2 Static Route Error](./screenshots/r2-static-route.png)
-
----
-
-## Platform Limitations Documented
-
-| Feature                                 | Status                         |
-| --------------------------------------- | ------------------------------ |
-| GRE tunnel configuration                | Supported                      |
-| Tunnel interface verification           | Supported                      |
-| Interface-based static routing over GRE | Not supported in Packet Tracer |
-
----
-
-## Verification Commands Used
-
-```bash
+Verification Commands Used
 show ip interface brief
 show interface tunnel 1
 show running-config
-```
 
----
+Key Takeaways
+GRE tunnels provide logical point-to-point connectivity over IP networks
+Tunnel interfaces behave like virtual WAN links
+Static routing over GRE is valid in real Cisco IOS environments
+Simulator limitations must be documented accurately for proof-of-work credibility
 
-## Key Takeaways
+Proof of Work Statement
+This lab is part of my hands-on networking proof-of-work, focused on real IOS behavior, transparent documentation, and clear differentiation between platform limitations and protocol functionality.
 
-* GRE tunnels provide logical point-to-point connectivity over IP networks
-* Tunnel interfaces behave like virtual WAN links
-* Static routing over GRE is valid in real Cisco IOS environments
-* Simulator limitations must be documented accurately for proof-of-work credibility
-
----
-
-## Proof of Work Statement
-
-This lab is part of my **hands-on networking proof-of-work**, focused on real IOS behavior, transparent documentation, and clear differentiation between platform limitations and protocol functionality.
-
----
-
-**Author:** Ronique Young
-**Track:** CAINO – Chief AI Network Engineer Officer
-**Platform:** Cisco Packet Tracer
-
-```
-```
+Author: Ronique Young
+Platform: Cisco Packet Tracer
 
