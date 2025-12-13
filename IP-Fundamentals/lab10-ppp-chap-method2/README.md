@@ -7,7 +7,7 @@ The objective of this lab is to configure **PPP encapsulation with CHAP authenti
 
 ## Lab Topology
 
-![PPP CHAP Topology](.screenshots/lab10-topology.png)
+![PPP CHAP Topology](./screenshots/lab10-topology.png)
 
 ---
 
