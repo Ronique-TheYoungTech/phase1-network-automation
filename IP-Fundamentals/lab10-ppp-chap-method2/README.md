@@ -7,7 +7,7 @@ The objective of this lab is to configure **PPP encapsulation with CHAP authenti
 
 ## Lab Topology
 
-![PPP CHAP Topology](lab10-topology.png)
+![PPP CHAP Topology](.screenshots/lab10-topology.png)
 
 ---
 
@@ -21,50 +21,50 @@ The objective of this lab is to configure **PPP encapsulation with CHAP authenti
 ## Step 1 – Configure Router Hostnames
 
 ### R1 Hostname Configuration
-![R1 Hostname Configuration](r1-hostname-config.png)
+![R1 Hostname Configuration](.screenshots/r1-hostname-config.png)
 
 ### R2 Hostname Configuration
-![R2 Hostname Configuration](r2-hostname-config.png)
+![R2 Hostname Configuration](.screenshots/r2-hostname-config.png)
 
 ---
 
 ## Step 2 – Configure Serial Interface IP Addresses
 
 ### R1 Serial Interface Configuration
-![R1 Serial Interface Configuration](r1-int-config.png)
+![R1 Serial Interface Configuration](.screenshots/r1-int-config.png)
 
 ### R2 Serial Interface Configuration
-![R2 Serial Interface Configuration](r2-int-config.png)
+![R2 Serial Interface Configuration](.screenshots/r2-int-config.png)
 
 ---
 
 ## Step 3 – Configure Clock Rate on DCE Side
 
 ### R2 Clock Rate Configuration
-![R2 Clock Rate Configuration](r2-clockrate-config.png)
+![R2 Clock Rate Configuration](.screenshots/r2-clockrate-config.png)
 
 ### Verify DCE and Clock Rate
-![Show Controllers Verification](r2-show-controllers-verification.png)
+![Show Controllers Verification](.screenshots/r2-show-controllers-verification.png)
 
 ---
 
 ## Step 4 – Enable PPP Encapsulation
 
 ### R1 PPP Encapsulation
-![R1 PPP Configuration](r1-ppp-config.png)
+![R1 PPP Configuration](.screenshots/r1-ppp-config.png)
 
 ### R2 PPP Encapsulation
-![R2 PPP Configuration](r2-ppp-config.png)
+![R2 PPP Configuration](.screenshots/r2-ppp-config.png)
 
 ---
 
 ## Step 5 – Configure CHAP Authentication
 
 ### R1 CHAP Configuration
-![R1 CHAP Configuration](r1-chap-config.png)
+![R1 CHAP Configuration](.screenshots/r1-chap-config.png)
 
 ### R2 CHAP Configuration
-![R2 CHAP Configuration](r2-chap-config.png)
+![R2 CHAP Configuration](.screenshots/r2-chap-config.png)
 
 > **Note:**  
 > - CHAP usernames must match the peer router hostname  
@@ -75,20 +75,20 @@ The objective of this lab is to configure **PPP encapsulation with CHAP authenti
 ## Step 6 – Debug PPP Authentication
 
 ### Enable PPP Authentication Debugging (R2)
-![PPP Authentication Debug](r2-debug-ppp.png)
+![PPP Authentication Debug](.screenshots/r2-debug-ppp.png)
 
 ### Disable PPP Authentication Debugging (R2)
-![PPP Authentication Undebug](r2-undebug-ppp.png)
+![PPP Authentication Undebug](.screenshots/r2-undebug-ppp.png)
 
 ---
 
 ## Step 7 – Verify PPP Operation
 
 ### R1 PPP Verification
-![R1 PPP Verification](r1-ppp-verification.png)
+![R1 PPP Verification](.screenshots/r1-ppp-verification.png)
 
 ### R2 PPP Verification
-![R2 PPP Verification](r2-ppp-verification.png)
+![R2 PPP Verification](.screenshots/r2-ppp-verification.png)
 
 ---
 
