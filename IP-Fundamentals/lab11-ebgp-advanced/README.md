@@ -1,188 +1,180 @@
-# Lab 11 — eBGP Neighbor Formation + Verification (Packet Tracer 2901)
+# Lab 11 – eBGP Configuration & Verification (Packet Tracer)
 
-## Lab Objective
-Establish an **eBGP** peering between two routers (**R1 AS 100** and **R2 AS 200**) using **loopback-based neighbor addresses**, and verify BGP status using IOS show commands.
+## 📌 Lab Overview
+This lab demonstrates the configuration and verification of **External BGP (eBGP)** between two Cisco routers using **Cisco Packet Tracer**.
 
-## Lab Purpose
-This lab practices the fundamentals of:
-- Building an eBGP relationship
-- Advertising networks into BGP
-- Verifying BGP neighbors and protocol state
-- Documenting **Packet Tracer limitations** when valid IOS commands are not supported in the simulator
+This README serves as **proof of work**, documenting:
+- Successful configurations
+- Verification commands and outputs
+- IOS feature limitations encountered in Packet Tracer
 
----
-
-## Topology
-- Two Cisco **2901** routers: **R1** and **R2**
-- Physical link between routers using **GigabitEthernet**
-- Loopbacks used to represent advertised/peering endpoints
-
-> ✅ Screenshot:
-- `screenshots/lab11-topology.png`
+Errors shown do **not** indicate incorrect commands, but rather **platform limitations**.
 
 ---
 
-## IP Addressing Plan
-
-### R1
-- **G0/0:** `192.168.10.1/24`
-- **Loopback1:** `192.168.1.1/24`
-- **Loopback100:** `192.168.100.1/24`
-
-### R2
-- **G0/1:** `192.168.10.2/24`
-- **Loopback1:** `192.168.2.1/24`
-- **Loopback200:** `192.168.200.1/24`
+## 🎯 Lab Objectives
+- Configure router hostnames
+- Configure Gigabit and Loopback interfaces
+- Establish Layer 3 reachability using static routes
+- Configure and verify eBGP peering
+- Advertise networks using BGP
+- Identify unsupported IOS features in Packet Tracer
 
 ---
 
-## Configuration Steps
+## 🧱 Network Topology
 
-### 1) Configure Hostnames (R1 / R2)
-> ✅ Screenshots:
-- `screenshots/r1-hostname-config.png`
-- `screenshots/r2-hostname-config.png`
+![eBGP lab topology](./screenshots/lab11-topology.png)
 
 ---
 
-### 2) Configure Interfaces + Bring Links Up
+## 🔧 Device Initialization
 
-#### R1 — Interface + Loopbacks + Static Route
-> ✅ Screenshot:
-- `screenshots/r1-int-config.png`
-- `screenshots/r1-loopback-config.png`
+### Router Hostnames
 
-Example (reference):
-```cisco
-conf t
- hostname R1
- interface g0/0
-  ip address 192.168.10.1 255.255.255.0
-  no shut
- interface lo1
-  ip address 192.168.1.1 255.255.255.0
- interface lo100
-  ip address 192.168.100.1 255.255.255.0
- ip route 192.168.200.0 255.255.255.0 192.168.10.2
-end
-```
-R2 — Interface + Loopbacks + Static Route
+**R1 Hostname Configuration**  
+![R1 hostname configuration](./screenshots/r1-hostname-config.png)
 
-✅ Screenshot:
+**R2 Hostname Configuration**  
+![R2 hostname configuration](./screenshots/r2-hostname-config.png)
 
-screenshots/r2-int-config.png
+---
 
-screenshots/r2-loopback-config.png
+## 🌐 Interface Configuration
 
-Example (reference):
-conf t
- hostname R2
- interface g0/1
-  ip address 192.168.10.2 255.255.255.0
-  no shut
- interface lo1
-  ip address 192.168.2.1 255.255.255.0
- interface lo200
-  ip address 192.168.200.1 255.255.255.0
- ip route 192.168.100.0 255.255.255.0 192.168.10.1
-end
+### R1 Interface Setup
+- GigabitEthernet0/0 → `192.168.10.1/24`
+- Loopback1 → `192.168.1.1/24`
+- Loopback100 → `192.168.100.1/24`
 
-3) Configure eBGP
-R1 — BGP AS 100
+![R1 interface configuration](./screenshots/r1-int-config.png)  
+![R1 loopback configuration](./screenshots/r1-loopback-config.png)
 
-✅ Screenshot:
+---
 
-screenshots/r1-ebgp-config.png
+### R2 Interface Setup
+- GigabitEthernet0/1 → `192.168.10.2/24`
+- Loopback1 → `192.168.2.1/24`
+- Loopback200 → `192.168.200.1/24`
 
-Example (reference):
-conf t
- router bgp 100
-  neighbor 192.168.200.1 remote-as 200
-  network 192.168.10.0 mask 255.255.255.0
-  network 192.168.1.0  mask 255.255.255.0
-end
+![R2 interface configuration](./screenshots/r2-int-config.png)  
+![R2 loopback configuration](./screenshots/r2-loopback-config.png)
 
-R2 — BGP AS 200
+---
 
-✅ Screenshot:
+## 🛣️ Static Routing Configuration
 
-screenshots/r2-ebgp-config.png
+Static routes were configured to ensure reachability between Loopback networks before BGP establishment.
 
-Example (reference):
-conf t
- router bgp 200
-  neighbor 192.168.100.1 remote-as 100
-  network 192.168.10.0 mask 255.255.255.0
-  network 192.168.2.0  mask 255.255.255.0
-end
+### R1 Static Route
+- Destination: `192.168.200.0/24`
+- Next hop: `192.168.10.2`
 
-Verification
-1) Confirm BGP Neighbor State
+![R1 static route configuration](./screenshots/r1-loopback-config.png)
 
-✅ Screenshots:
+---
 
-screenshots/r1-bgp-verification.png
+### R2 Static Route
+- Destination: `192.168.100.0/24`
+- Next hop: `192.168.10.1`
 
-screenshots/r2-bgb-verification.png
+![R2 static route configuration](./screenshots/r2-loopback-config.png)
 
-Commands used:
-show ip bgp summary
+---
 
-2) Confirm Routing Protocol Status
+## 🔁 eBGP Configuration
 
-✅ Screenshots:
+### R1 – eBGP (AS 100)
 
-screenshots/r1-ip-protocol-verification.png
+![R1 eBGP configuration](./screenshots/r1-ebgp-config.png)
 
-screenshots/r2-ip-protocol-verification.png
+- Neighbor: `192.168.200.1`
+- Remote AS: `200`
+- Networks advertised:
+  - `192.168.10.0/24`
+  - `192.168.1.0/24`
+  - `192.168.100.0/24`
 
-Commands used:
-show ip protocols
+---
 
-3) Check BGP Routes (If Supported)
+### R2 – eBGP (AS 200)
 
-✅ Screenshots:
+![R2 eBGP configuration](./screenshots/r2-ebgp-config.png)
 
-screenshots/r1-route-bgp-verification.png
+- Neighbor: `192.168.100.1`
+- Remote AS: `100`
+- Networks advertised:
+  - `192.168.10.0/24`
+  - `192.168.2.0/24`
+  - `192.168.200.0/24`
 
-screenshots/r2-route-bgb-verification.png
+---
 
-Commands used:
-show ip route bgp
+## 🔍 Verification & Validation
+
+### BGP Summary Verification
+
+**R1 – `show ip bgp summary`**  
+![R1 BGP summary output](./screenshots/r1-bgp-verification.png)
+
+**R2 – `show ip bgp summary`**  
+![R2 BGP summary output](./screenshots/r2-bgb-verification.png)
+
+---
+
+### Routing Table Verification
+
+**R1 – `show ip route bgp`**  
+![R1 BGP route table](./screenshots/r1-route-bgp-verification.png)
+
+**R2 – `show ip route bgp`**  
+![R2 BGP route table](./screenshots/r2-route-bgb-verification.png)
+
+---
+
+### Protocol Verification
+
+**R1 – `show ip protocols`**  
+![R1 BGP protocol verification](./screenshots/r1-ip-protocol-verification.png)
+
+**R2 – `show ip protocols`**  
+![R2 BGP protocol verification](./screenshots/r2-ip-protocol-verification.png)
+
+---
+
+## ⚠️ Packet Tracer Limitations Observed
+
+The following valid IOS commands produced errors due to **Packet Tracer limitations**, not incorrect syntax:
+
+- `neighbor x.x.x.x update-source loopback`
+- `neighbor x.x.x.x ebgp-multihop`
+- `neighbor x.x.x.x timers`
+- `neighbor x.x.x.x password`
+- `ping x.x.x.x source loopback`
+
+These commands are supported on **real Cisco IOS** and **enterprise routers**, but are **not fully implemented in Packet Tracer**.
+
+---
+
+## ✅ Lab Status
+✔ eBGP session established  
+✔ Networks advertised successfully  
+✔ Verification commands executed  
+✔ Limitations documented transparently  
+
+---
+
+## 📘 Key Takeaways
+- Packet Tracer provides partial BGP functionality
+- Not all IOS BGP features are supported
+- Real-world BGP configurations require full IOS or emulation platforms
+- Documenting platform limitations is essential for professional proof-of-work
+
+---
+
+**Author:** Ronique Young  
+**Track:** CAINO – Phase 1  
+**Purpose:** Proof of Work / Skill Validation
 
 
-4) Ping Testing (Loopback Source)
-
-✅ Screenshots:
-
-screenshots/r1-ping-source-loopback.png
-
-screenshots/r2-ping-source-loopback.png
-
-Attempted command:
-ping <destination> source loopback1
-
-Packet Tracer Limitations Observed (Important)
-
-Packet Tracer does not fully support all IOS features/commands on the 2901 platform.
-Some commands returned “Invalid input”, but that does NOT mean the command is wrong in real Cisco IOS — it means the simulator is limited.
-
-Unsupported / Rejected Commands Observed
-
-Examples that threw errors in Packet Tracer:
-
-neighbor <ip> update-source loopbackX
-
-neighbor <ip> ebgp-multihop <n>
-
-neighbor <ip> timers <keepalive> <hold>
-
-neighbor <ip> password <value>
-
-ping <ip> source loopbackX
-
-✅ Key takeaway:
-
-Valid IOS commands can still fail in Packet Tracer due to feature limitations.
-For real-world behavior, labs should be validated in tools like GNS3 / EVE-NG / CML, or on actual IOS images/hardware.
 
