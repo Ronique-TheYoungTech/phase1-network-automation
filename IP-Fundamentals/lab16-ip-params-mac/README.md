@@ -12,7 +12,7 @@ This lab was completed using a browser-based virtual desktop environment due to 
 
 ### Network Configuration (GUI)
 
-![Mac OS IP configuration window showing IPv4 address, subnet mask, and gateway](./screenshots/lab16-mac-ip-config.png)
+![Mac OS IP configuration window showing IPv4 address, subnet mask, and gateway](./screenshots/lab16-topology.png)
 
 The following IPv4 parameters were observed via the GUI network settings panel:
 
@@ -26,7 +26,7 @@ The following IPv4 parameters were observed via the GUI network settings panel:
 
 ### Network Settings Overview
 
-![Mac OS network settings overview showing wired connection](./screenshots/lab16-network-settings.png)
+![Mac OS network settings overview showing wired connection](./screenshots/mac-ip-config.png)
 
 The active wired network interface was selected from the Network settings panel to verify interface status and IP assignment.
 
